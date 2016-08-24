@@ -43,7 +43,8 @@ public class BinderBuilder {
 		
 		String template = Template.CODE;
 		
-		mImports = new HashSet<String>();
+		mImports = new HashSet<>();
+		mImports.add(mPkgName + ".R");
 		
 		StringBuilder fieldsStringBuilder = new StringBuilder();
 		StringBuilder bindStringBuilder = new StringBuilder();
