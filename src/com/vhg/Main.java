@@ -11,7 +11,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		if (null == args || args.length != 3) {
-			System.out.println("usage: layoutbinder.jar <package-name> <xml-file-name> <output-path>");
+			System.out.println("usage: viewholdergenerator.jar <package-name> <xml-file-name or layout-path> <output-path>");
 		} else {
 			File xmlFile = new File(args[1]);
 			if (xmlFile.exists()) {

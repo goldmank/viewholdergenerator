@@ -28,7 +28,7 @@ public class BinderBuilder {
 		mView = view;
 		mClassName = className;
 		mPkgName = pkgName;
-		mOutputPath = outputPath;
+		mOutputPath = outputPath + "/vh";
 		new File(mOutputPath).mkdirs();
 	}
 	
@@ -50,7 +50,7 @@ public class BinderBuilder {
 		StringBuilder bindStringBuilder = new StringBuilder();
 		buildFields(fieldsStringBuilder, bindStringBuilder, mView);	
 		
-		template = template.replace("$PACKAGE_NAME$", mPkgName);
+		template = template.replace("$PACKAGE_NAME$", mPkgName + ".vh");
 		template = template.replace("$IMPORT$", buildImportString());
 		template = template.replace("$CLASS_NAME$", mClassName);
 		template = template.replace("$FIELDS$", fieldsStringBuilder.toString());
@@ -81,6 +81,10 @@ public class BinderBuilder {
 		if (null != v.getId() && !v.getId().isEmpty()) {
 			String fieldName = v.getName();
 			String type = v.getType();
+			if (type.equals("fragment")){
+				return;
+				//TODO: handle fragments
+			}
 			
 			fields.append("\t");
 			binds.append("\t\t");
@@ -105,6 +109,8 @@ public class BinderBuilder {
 				}
 				if (type.contains(".")) {
 					mImports.add(type);
+				} else if (type.equals("fragment")){
+					//TODO: handle fragments
 				} else {
 					mImports.add("android.widget." + type);
 				}
