@@ -2,7 +2,7 @@
 Auto generating Android View Holder classes from XML layout
 
 
-This project outputs a JAR file (you can also find it in \bin folder) that you can add to your gradle script, as a pre-build process, to automatically re-create Java classes out of layout XML.
+This project outputs a JAR file (you can also find it [here](https://github.com/goldmank/viewholdergenerator/blob/master/bin/viewholdergenerator.jar)) that you can add to your gradle script, as a pre-build process, to automatically re-create Java classes out of layout XML.
 
 ```
 Usage: viewholdergenerator.jar <package-name> <xml-file-name or layout-path> <output-path>
